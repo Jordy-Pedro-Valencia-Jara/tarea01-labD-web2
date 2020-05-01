@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Botones2</title>
+</head>
+<body>
+    <p id=palabra>soy una palabra</p>
+    <button onclick=crecer()>crecer</button>
+    <button onclick=disminuir()>disminuir</button>
+    <script>
+        function crecer(){
+            document.getElementById('palabra').style.fontSize="30px";
+        }
+        function disminuir(){
+            document.getElementById('palabra').style.fontSize="10px";
+        }
+    </script>
+</body>
