@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+    <title>operaciones</title>
+    <link rel="stylesheet" href="operadores2.css">
+</head>
+<body>
+    <form >
+        <label for="num1">Numero1</label>
+        <input type="text" name="num1" id="num1" placeholder="Numero1" size="10px"><br>
+        <label for="num2">Numero2</label>
+        <input type="text" name="num2" id="num2" placeholder="Numero2" size="10px"><br>
+        <label id="respuesta" name="respuesta">Respuesta: </label><label id="vacio"></label><br>
+        <input type="radio" name="operacion" id="suma">
+        <label >Suma</label>
+        <input type="radio" name="operacion" id="resta">
+        <label >Resta</label>
+        <input type="radio" name="operacion" id="multiplicacion">
+        <label >Multiplicar</label>
+        <input type="radio" name="operacion" id="division">
+        <label >Division</label><br>
+        <input type="submit" id="btn"value="Enviar">
+    </form>
+    <form>
+        <label for="numer1">Numero1</label>
+        <input type="text" name="numer1" id="numer1" placeholder="Numero1" size="10px">
+        <label id=operacion >  </label>
+        <label for="numer2">Numero2</label>
+        <input type="text" name="numer2" id="numer2" placeholder="Numero2" size="10px"><br>
+        <label id="respuesta2" name="respuesta2">Respuesta: </label><label id="vacio2"></label> <label id="vacio3"></label><br>
+        <input type="radio" name="operacionlog" id="and">
+        <label >AND</label>
+        <input type="radio" name="operacionlog" id="or">
+        <label >OR</label>
+        <input type="radio" name="operacionlog" id="not">
+        <label >NOT</label>
+        <input type="radio" name="operacionlog" id="xor">
+        <label >XOR</label><br>
+        <button id=btn2>Enviar</button>
+    </form>
+    <script>
+        let formulario=document.getElementsByTagName("form")[0];
+        formulario.addEventListener("submit",operacion);
+        function operacion(e){
+               let xd= comprobar(e);
+                let xdd=operaciones(e);
+                if(xd&&xdd){
+                    respuesta();
+                    e.preventDefault();
+                }
+                
+        }
+        function comprobar(e){
+            if (formulario.num1.value==""||formulario.num2.value==""){
+                alert("Debe ingresar ambos numeros");
+                e.preventDefault();      
+            }else {
+                return true;
+            }
+            
+        }
+        function operaciones(e){
+            if(formulario.operacion[0].checked==false&&
+               formulario.operacion[1].checked==false&&
+               formulario.operacion[2].checked==false&&
+               formulario.operacion[3].checked==false){
+                alert("Debe elegir una operacion");
+                e.preventDefault();
+            }
+            else{
+                return true;
+            }
+        }
+        function respuesta(){ 
+            if (formulario.operacion[0].checked==true){
+                document.getElementById("vacio").innerHTML=parseInt(formulario.num1.value) +parseInt(formulario.num2.value);
+            }
+            else if (formulario.operacion[1].checked==true){
+                document.getElementById("vacio").innerHTML=parseInt(formulario.num1.value) -parseInt(formulario.num2.value);
+            }
+            else if (formulario.operacion[2].checked==true){
+                document.getElementById("vacio").innerHTML=parseInt(formulario.num1.value) *parseInt(formulario.num2.value);
+            }
+            else{
+                document.getElementById("vacio").innerHTML=parseInt(formulario.num1.value) /parseInt(formulario.num2.value);
+            }
+        }
+    </script>
+    <script>
+        let formulario2=document.getElementsByTagName("form")[1];
+        let boton=document.getElementById("btn2");
+        boton.addEventListener("click",operacion);
+        function operacion(e){
+               let numeros= comprobar(e);
+                let seleccion=operaciones(e);
+                if(numeros&&seleccion){
+                    respuesta();
+                    e.preventDefault();
+                }
+                
+        }
+        function comprobar(e){
+            if (formulario2.numer1.value==""||formulario2.numer2.value==""){
+                alert("Debe ingresar ambos numeros");
+                e.preventDefault();      
+            }else {
+                return true;
+            }
+            
+        }
+        function operaciones(e){
+            if(formulario2.operacionlog[0].checked==false&&
+               formulario2.operacionlog[1].checked==false&&
+               formulario2.operacionlog[2].checked==false&&
+               formulario2.operacionlog[3].checked==false){
+                alert("Debe elegir una operacion");
+                e.preventDefault();
+            }
+            else{
+                return true;
+            }
+        }
+        function respuesta(){ 
+            if (formulario2.operacionlog[0].checked==true){
+                document.getElementById("vacio2").innerHTML=parseInt(formulario2.numer1.value) & parseInt(formulario2.numer2.value);
+            }
+            else if (formulario2.operacionlog[1].checked==true){
+                document.getElementById("vacio2").innerHTML=parseInt(formulario2.numer1.value) | parseInt(formulario2.numer2.value);
+            }
+            else if (formulario2.operacionlog[2].checked==true){
+                document.getElementById("vacio2").innerHTML=~parseInt(formulario2.numer1.value);
+                document.getElementById("vacio3").innerHTML=~parseInt(formulario2.numer2.value);
+            }
+            else{
+                document.getElementById("vacio2").innerHTML=parseInt(formulario2.numer1.value)^parseInt(formulario2.numer2.value);
+            }
+        }
+    </script>
+</body>

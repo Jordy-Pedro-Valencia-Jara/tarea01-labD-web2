@@ -3,7 +3,7 @@
     <title>operaciones</title>
 </head>
 <body>
-    <form action="" method="GET">
+    <form >
         <label for="num1">Numero1</label>
         <input type="text" name="num1" id="num1" placeholder="Numero1" size="10px"><br>
         <label for="num2">Numero2</label>
@@ -33,7 +33,7 @@
         }
         function comprobar(e){
             if (formulario.num1.value==""||formulario.num2.value==""){
-                alert("debe ingresar numeros");
+                alert("Debe ingresar ambos numeros");
                 e.preventDefault();      
             }else {
                 return true;
