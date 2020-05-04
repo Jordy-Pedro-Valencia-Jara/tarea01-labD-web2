@@ -1,0 +1,17 @@
+body{
+    background:rgb(20, 201, 171);
+}
+.formularios{
+    margin: 15% 40%;
+    margin-bottom: 0%;
+}
+form{
+    border:3px solid green;
+    margin:10px;
+    padding:10px;
+}
+button,input[type=submit]{
+    padding: 5px;
+    margin: 3px 38%;
+    text-align: center;
+}
